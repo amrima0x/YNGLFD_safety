@@ -27,8 +27,8 @@ button,input{font:inherit;color:inherit}
 
 /* top bar */
 .top{display:flex;align-items:center;gap:12px;padding:14px 0}
-.logo{height:34px;width:auto;display:block}
-.dept{font-size:13px;color:var(--muted);line-height:1.25;flex:1;min-width:0}
+.logo{height:42px;width:auto;max-width:110px;object-fit:contain;display:block;flex:none;padding-left:12px;border-left:1px solid var(--line)}
+.dept{font-size:13px;color:var(--muted);line-height:1.25;flex:1;min-width:0;text-align:left}
 .dept b{display:block;color:var(--ink);font-weight:600;font-size:14px}
 .lang{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:6px 14px;font-size:14px;cursor:pointer;flex:none}
 .lang:hover{background:rgba(255,255,255,.08)}
@@ -142,10 +142,10 @@ footer b{color:var(--muted);font-weight:500}
 <div id="demo" class="demo hide"></div>
 
 <div class="wrap">
-  <header class="top">
-    <img class="logo" src="assets/logo.png" alt="Saudi Aramco" onerror="this.remove()">
+  <header class="top" dir="ltr">
     <div class="dept"><b>Yanbu NGL Fractionation Department</b><span data-t="deptSub"></span></div>
     <button class="lang" id="langBtn" type="button">عربي</button>
+    <img class="logo" src="assets/logo.png" alt="Saudi Aramco" onerror="this.remove()">
   </header>
 
   <section class="hero">
