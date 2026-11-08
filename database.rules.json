@@ -1,0 +1,37 @@
+{
+  "rules": {
+    ".read": "auth != null && auth.uid === 'aeMoWjBNurTtPKYzYP7bqMgDeXr2'",
+    ".write": "auth != null && auth.uid === 'aeMoWjBNurTtPKYzYP7bqMgDeXr2'",
+
+    "public": {
+      ".read": true,
+      "counts": {
+        "$day": {
+          ".write": "($day === 'd17' || $day === 'd18') && root.child('public/settings/' + $day + '/open').val() !== false && newData.child('n').isNumber() && newData.child('n').val() === (data.child('n').exists() ? data.child('n').val() : 0) + 1 && newData.child('n').val() <= 100 && newData.child('last').isString() && newData.parent().parent().parent().child('registrations/' + $day + '/' + newData.child('last').val()).exists() && !root.child('registrations/' + $day + '/' + newData.child('last').val()).exists()"
+        }
+      },
+      "settings": {
+        "$day": {
+          "open": { ".validate": "newData.isBoolean()" }
+        }
+      }
+    },
+
+    "registrations": {
+      "$day": {
+        "$emp": {
+          ".write": "!data.exists() && newData.exists() && ($day === 'd17' || $day === 'd18') && $emp.matches(/^[A-Z0-9-]{2,20}$/) && now < ($day === 'd17' ? 1794909600000 : 1794996000000) && !root.child('registrations/' + ($day === 'd17' ? 'd18' : 'd17') + '/' + $emp).exists() && newData.parent().parent().parent().child('public/counts/' + $day + '/last').val() === $emp && newData.parent().parent().parent().child('public/counts/' + $day + '/n').val() === (root.child('public/counts/' + $day + '/n').exists() ? root.child('public/counts/' + $day + '/n').val() : 0) + 1",
+          ".validate": "newData.hasChildren(['name', 'empId', 'company', 'ts', 'seat'])",
+          "name":    { ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 80" },
+          "empId":   { ".validate": "newData.val() === $emp" },
+          "company": { ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 80" },
+          "email":   { ".validate": "newData.isString() && newData.val().length <= 120 && newData.val().matches(/^[^@ ]+@[^@ ]+[.][^@ ]+$/)" },
+          "ts":      { ".validate": "newData.val() === now" },
+          "seat":    { ".validate": "newData.isNumber() && newData.val() === newData.parent().parent().parent().parent().child('public/counts/' + $day + '/n').val()" },
+          "lang":    { ".validate": "newData.val() === 'en' || newData.val() === 'ar'" },
+          "$other":  { ".validate": false }
+        }
+      }
+    }
+  }
+}
