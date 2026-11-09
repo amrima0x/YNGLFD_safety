@@ -11,13 +11,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f4f7fb; --card:#ffffff; --tint:#eef6fc; --line:#e1e7ef;
-  --ink:#1c2533; --muted:#5a6578; --dim:#8a94a6;
+  --bg:#f5f5f5; --card:#ffffff; --tint:#eef6fc; --line:#DADADA;
+  --ink:#676A6E; --muted:#676A6E; --dim:#808080;
   --navy:#0033A0; --blue:#00A3E0; --green:#84BD00; --dgreen:#00843D; --red:#d6334a; --warn:#e88a00;
   --grad:linear-gradient(120deg,#0033A0 0%,#0072CE 40%,#00A3E0 68%,#84BD00 100%);
   --r:18px;
-  --display:"Alexandria","IBM Plex Sans Arabic",system-ui,sans-serif;
-  --body:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:"Manifa Pro 2","Manifa Pro2","ManifaPro2","Manifa","Alexandria","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"Manifa Pro 2","Manifa Pro2","ManifaPro2","Manifa","IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
@@ -63,7 +63,7 @@ button,input{font:inherit;color:inherit}
 .dmon{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.1em;color:var(--blue)}
 .seats{margin-top:12px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:6px}
 .seats b{color:var(--ink);font-weight:700}
-.bar{margin-top:7px;height:6px;border-radius:9px;background:#e8eef5;overflow:hidden}
+.bar{margin-top:7px;height:6px;border-radius:9px;background:#DADADA;overflow:hidden}
 .bar i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--blue),var(--green));transition:width .6s ease}
 .day.low .bar i{background:linear-gradient(90deg,#f5a623,var(--warn))}
 .check{position:absolute;top:12px;inset-inline-end:12px;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;transition:.15s;background:#fff}
@@ -85,7 +85,7 @@ button,input{font:inherit;color:inherit}
 .field label{display:flex;justify-content:space-between;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--ink)}
 .field label em{font-style:normal;color:var(--dim);font-weight:400;font-size:13px}
 .field input{width:100%;background:#fbfcfe;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;font-size:16px;outline:none;transition:border-color .15s,box-shadow .15s}
-.field input::placeholder{color:#a3acbb}
+.field input::placeholder{color:#C0C0C0}
 .field input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,163,224,.14);background:#fff}
 .field.err input{border-color:var(--red)}
 .field .msg{display:none;color:var(--red);font-size:13px;margin-top:5px}
